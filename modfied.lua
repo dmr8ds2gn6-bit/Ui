@@ -2076,7 +2076,7 @@
                 -- 
 
                 -- Page directory 
-                    Items.Page = Library:Create( "Frame" , {
+                    Items.Page = Library:Create( "ScrollingFrame" , {
                         Parent = Library.Other; -- self.Items.PageHolder
                         Name = "\0";
                         Visible = false;
@@ -2085,7 +2085,10 @@
                         BorderColor3 = rgb(0, 0, 0);
                         Size = dim2(1, -4, 1, -4);
                         BorderSizePixel = 0;
-                        BackgroundColor3 = rgb(255, 255, 255)
+                        BackgroundColor3 = rgb(255, 255, 255);
+                        ScrollBarThickness = 0;
+                        AutomaticCanvasSize = Enum.AutomaticSize.Y;
+                        CanvasSize = dim2(0, 0, 0, 0);
                     });
                     
                     Library:Create( "UIListLayout" , {
@@ -2094,7 +2097,6 @@
                         Parent = Items.Page;
                         Padding = dim(0, 4);
                         SortOrder = Enum.SortOrder.LayoutOrder;
-                        VerticalFlex = Enum.UIFlexAlignment.Fill
                     });
                     
                     Items.Left = Library:Create( "Frame" , {
@@ -2102,7 +2104,8 @@
                         BackgroundTransparency = 1;
                         Name = "\0";
                         BorderColor3 = rgb(0, 0, 0);
-                        Size = dim2(0, 100, 0, 100);
+                        Size = dim2(0, 100, 0, 0);
+                        AutomaticSize = Enum.AutomaticSize.Y;
                         BorderSizePixel = 0;
                         BackgroundColor3 = rgb(255, 255, 255)
                     });
@@ -2118,7 +2121,8 @@
                         BackgroundTransparency = 1;
                         Name = "\0";
                         BorderColor3 = rgb(0, 0, 0);
-                        Size = dim2(0, 100, 0, 100);
+                        Size = dim2(0, 100, 0, 0);
+                        AutomaticSize = Enum.AutomaticSize.Y;
                         BorderSizePixel = 0;
                         BackgroundColor3 = rgb(255, 255, 255)
                     });
