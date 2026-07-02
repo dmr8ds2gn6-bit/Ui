@@ -16,7 +16,7 @@
 
 -- Library init
     getgenv().Library = {
-        Directory = "Cipher",
+        Directory = "Bbot v3",
         Folders = {
             "/fonts",
             "/configs",
@@ -32,14 +32,14 @@
     
     local themes = {
         preset = {
-            inline = rgb(0, 0, 0);
-            gradient = rgb(0, 0, 0);
-            outline = rgb(0, 0, 0);
-            accent = rgb(164, 210, 255);
-            background = rgb(0, 0, 0);
-            text_color = rgb(255, 255, 255);
+            inline = rgb(50, 50, 50);
+            gradient = rgb(40, 40, 40);
+            outline = rgb(20, 20, 20);
+            accent = rgb(50, 119, 186);
+            background = rgb(30, 30, 30);
+            text_color = rgb(239, 239, 239);
             text_outline = rgb(0, 0, 0);
-            tab_background = rgb(0, 0, 0);
+            tab_background = rgb(26, 26, 26);
         },
         utility = {},
         gradients = {
@@ -4074,7 +4074,6 @@
 
             Library:Connection(InputService.InputBegan, function(input, game_event)
                 if input.UserInputType == Enum.UserInputType.MouseButton1 then
-                    print("clicked")
                     if (Items.DropdownElements.Visible) and not Library:Hovering({Items.DropdownElements, Items.Dropdown}) then
                         Cfg.SetVisible(false)
                         Cfg.Open = false
@@ -4803,9 +4802,9 @@
             delay(2, function() window.Tweening = false end)
 
             local Section = Tab:Section({Name = "Other", Side = "Right"})
-            Section:Toggle({Name = "Watermark", Flag = "Watermark", Default = true, Callback = window.ToggleWatermark})
-            Section:Toggle({Name = "Keybind List", Flag = "KeybindList", Default = true, Callback = window.ToggleKeybindList})
-            Section:Toggle({Name = "Toggle Status", Flag = "Status", Default = true, Callback = window.ToggleStatus})
+            Section:Toggle({Name = "Watermark", Flag = "Watermark", Callback = window.ToggleWatermark})
+            Section:Toggle({Name = "Keybind List", Flag = "KeybindList", Callback = window.ToggleKeybindList})
+            Section:Toggle({Name = "Toggle Status", Flag = "Status", Callback = window.ToggleStatus})
             Section:Textbox({Name = "Custom Menu Name", Callback = window.ChangeTitle, Default = window.Name, Placeholder = "Title name here..."})
             Section:Textbox({Name = "Custom Watermark Name", Callback = window.ChangeWatermarkTitle, Default = window.Name .. ".lua", Placeholder = "Title name here..."})
             Section:Dropdown({Name = "Tweening Style", Options = {"Linear", "Sine", "Back", "Quad", "Quart", "Quint", "Bounce", "Elastic", "Exponential", "Circular", "Cubic"}, Flag = "LibraryEasingStyle", Default = "Quint", Callback = function(Option)
